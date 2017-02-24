@@ -260,10 +260,10 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
 ///
 /// @param {String} $expression - Expression to extract operator from
 ///
-/// @return {String} - Any of `>=`, `>`, `<=`, `<`, `≥`, `≤`
+/// @return {String} - Any of `>=`, `>`, `<=`, `<`, `≥`, `≤`, 'below:', 'above:'
 ///
 @function get-expression-operator($expression) {
-  @each $operator in ('>=', '>', '<=', '<', '≥', '≤') {
+  @each $operator in ('>=', '>', '<=', '<', '≥', '≤', 'below:', 'above:') {
     @if str-index($expression, $operator) {
       @return $operator;
     }
@@ -307,7 +307,7 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
 /// @return {String} - `min` or `max`
 ///
 @function get-expression-prefix($operator) {
-  @return if(index(('<', '<=', '≤'), $operator), 'max', 'min');
+  @return if(index(('<', '<=', '≤', 'below:'), $operator), 'max', 'min');
 }
 
 

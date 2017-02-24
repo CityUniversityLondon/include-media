@@ -10,10 +10,10 @@
 ///
 /// @param {String} $expression - Expression to extract operator from
 ///
-/// @return {String} - Any of `>=`, `>`, `<=`, `<`, `≥`, `≤`, 'lt-', 'lte-', 'gt-', 'gte-'
+/// @return {String} - Any of `>=`, `>`, `<=`, `<`, `≥`, `≤`, 'below:', 'above:'
 ///
 @function get-expression-operator($expression) {
-  @each $operator in ('>=', '>', '<=', '<', '≥', '≤', 'lt-', 'lte-', 'gt-', 'gte-') {
+  @each $operator in ('>=', '>', '<=', '<', '≥', '≤', 'below:', 'above:') {
     @if str-index($expression, $operator) {
       @return $operator;
     }
@@ -57,7 +57,7 @@
 /// @return {String} - `min` or `max`
 ///
 @function get-expression-prefix($operator) {
-  @return if(index(('<', '<=', '≤', 'lt-', 'lte-'), $operator), 'max', 'min');
+  @return if(index(('<', '<=', '≤', 'below:'), $operator), 'max', 'min');
 }
 
 
