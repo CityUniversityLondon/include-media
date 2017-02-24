@@ -90,7 +90,7 @@
     $_: im-log('Unknown unit `#{unit($value)}`.');
   }
 
-  @if $operator == '>' {
+  @if $operator == '>' || $operator == 'above:' {
     $value: $value + $interval;
   } @else if $operator == '<' {
     $value: $value - $interval;
