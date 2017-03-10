@@ -345,7 +345,7 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
     $_: im-log('Unknown unit `#{unit($value)}`.');
   }
 
-  @if $operator == '>' || $operator == 'above:' {
+  @if $operator == '>' or $operator == 'above:' {
     $value: $value + $interval;
   } @else if $operator == '<' {
     $value: $value - $interval;
